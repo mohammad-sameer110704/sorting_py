@@ -1,14 +1,12 @@
-arr=list(map(int,input().split()))
-
-n = len(arr)
-
+nums=list(map(int,input("Enter elements for sorting : ").split()))
+n=len(nums)
 for i in range(n):
-    min_index = i
+    min=i
+    for j in range(i+1,n):
+        if nums[min] > nums[j]:
+            min = j
 
-    for j in range(i + 1, n):
-        if arr[j] < arr[min_index]:
-            min_index = j
+    nums[i],nums[min] = nums[min],nums[i]
 
-    arr[i], arr[min_index] = arr[min_index], arr[i]
+print(nums)
 
-print(arr)
